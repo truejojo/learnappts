@@ -1,8 +1,10 @@
 import React from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import MainThemeContent from "./components/MainThemeContent";
 import Counter from "./components/Counter";
 import Theme from "./components/Theme";
+import Like from "./assets/Like";
 import styled from "styled-components";
 import { ThemeContentCounterProvider } from "./provider/ThemeContentCounter";
 import { ThemeContentProvider } from "./provider/ThemeContent";
@@ -27,10 +29,12 @@ function App() {
         <Container>
           <MainThemeContent />
           <aside>
-            <Counter initialState={0} />
+            <Counter />
             <Theme />
+            <Like />
           </aside>
         </Container>
+        <Footer />
       </ThemeContentProvider>
     </ThemeContentCounterProvider>
   );

@@ -4,7 +4,7 @@ import { IThemeContent } from "../interfaces/interface";
 import ThemeChangeNote from "../assets/ThemeChangeNote";
 
 const Header = () => {
-  const { theme, count } = useContext<IThemeContent>(ThemeContent);
+  const { theme, getCount } = useContext<IThemeContent>(ThemeContent);
   const styles = {
     color: theme,
   };
@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header>
       <h1 style={styles}>Welcome</h1>
-      <ThemeChangeNote count={count} />
+      <ThemeChangeNote count={getCount()} />
     </header>
   );
 };

@@ -1,3 +1,15 @@
+import { COUNTER_ACTIONS } from "../enums/enum";
+
+// hooks
+export interface ICountState {
+  count: number;
+}
+
+export interface ICountAction {
+  type: COUNTER_ACTIONS;
+  payload: number;
+}
+
 export interface IDataItems {
   id: number;
   title: string;
@@ -14,12 +26,12 @@ export interface IChildren {
 export interface IThemeContent {
   theme?: string;
   toggleTheme?: () => void;
-  count: number;
+  getCount: () => number;
 }
 
 export interface IThemeContentCounter {
-  count: number;
-  incrementCount: () => void;
+  increment: () => void;
+  getCount: () => number;
 }
 export interface IThemeContentCount {
   count: number;

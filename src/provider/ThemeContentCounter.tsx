@@ -1,15 +1,14 @@
-import { useState, createContext, FC } from "react";
+import { createContext, FC } from "react";
 import { IChildren, IThemeContentCounter } from "../interfaces/interface";
+import useCounter from "../hooks/useCounter";
 
-const ThemeContentCounter = createContext({} as  IThemeContentCounter);
+const ThemeContentCounter = createContext({} as IThemeContentCounter);
 
-const ThemeContentCounterProvider: FC<IChildren> = ({children}) => {
-  const [count, setCounter] = useState(0);
-
-  const incrementCount = () => setCounter((prevCount: number) => prevCount + 1);
+const ThemeContentCounterProvider: FC<IChildren> = ({ children }) => {
+  const { increment, getCount } = useCounter();
 
   return (
-    <ThemeContentCounter.Provider value={{count, incrementCount}}>
+    <ThemeContentCounter.Provider value={{ increment, getCount }}>
       {children}
     </ThemeContentCounter.Provider>
   );
