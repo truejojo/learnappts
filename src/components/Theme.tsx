@@ -3,17 +3,15 @@ import { ThemeContent } from "../provider/ThemeContent";
 import { IThemeContent } from "../interfaces/interface";
 import ThemeChangeNote from "../assets/ThemeChangeNote";
 
-const Header = () => {
-  const { theme, count } = useContext<IThemeContent>(ThemeContent);
-  const styles = {
-    color: theme,
-  };
+const Theme = () => {
+  const { toggleTheme, count } = useContext<IThemeContent>(ThemeContent);
 
   return (
-    <header>
-      <h1 style={styles}>Welcome</h1>
+    <section>
+      <button onClick={toggleTheme}>Change Theme</button>
       <ThemeChangeNote count={count} />
-    </header>
+    </section>
   );
 };
-export default Header;
+
+export default Theme;

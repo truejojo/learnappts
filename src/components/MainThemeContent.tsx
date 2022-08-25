@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
-import { IDataItems } from "../interfaces/interface";
+import { useState, useEffect, useContext } from "react";
+import { IDataItems, IThemeContent } from "../interfaces/interface";
 import ListElement from "../assets/ListElement";
+import { ThemeContent } from "../provider/ThemeContent";
 
 enum CURREN_CONTENT {
   POSTS = "posts",
@@ -11,6 +12,12 @@ enum CURREN_CONTENT {
 function MainThemeContent() {
   const [currentContent, setCurrentContent] = useState(CURREN_CONTENT.POSTS);
   const [data, setData] = useState([]);
+
+  const { theme } = useContext<IThemeContent>(ThemeContent);
+  console.log(`Theme: ${theme}`)
+  const styles = {
+    background: theme,
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,7 +39,7 @@ function MainThemeContent() {
   };
 
   return (
-    <main>
+    <main style={styles}>
       <div className="links">
         <button
           className="btn"
