@@ -1,0 +1,102 @@
+:root {
+  --spacer: 1rem;
+  --multiplicator-1: 1;
+  --multiplicator-2: 2;
+  --multiplicator-3: 3;
+  --multiplicator-4: 4;
+}
+
+/* new */
+.flex {
+  display: flex;
+  grid-gap: var(--gap, var(--spacer));
+}
+
+.grid {
+  display: grid;
+  grid-gap: var(--gap, var(--spacer));
+}
+/* new end ...*/
+
+/* Default for margin: 0 */
+.flow-content--top > * + * {
+  margin-top: var(--spacer);
+}
+
+/* Flex: even-columns with media */
+.split {
+  display: flex;
+  flex-direction: column;
+}
+
+.split > * + * {
+  margin: var(--spacer) 0 0 0;
+  /* margin: calc(var(--spacer) * var(--multiplicator-4)) 0 0 0; */
+}
+
+/* Flex: grid-ish without media */
+.grid-ish {
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: var(--spacer);
+}
+
+.grid-ish > * {
+  flex: 1 1 280px;
+}
+
+/* grid-ish: optional */
+.grid-ish > * > p {
+  max-width: 65ch;
+}
+
+/* Real Grid - like container */
+.site-grid {
+  display: grid;
+  grid-template-columns: minmax(1em, 1fr) minmax(0px, 850px) minmax(1em, 1fr);
+  grid-gap: var(--spacer);
+}
+
+.site-grid > * {
+  grid-column: 2 / -2;
+}
+
+/* Cards, Posts... Grid */
+.tile-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: calc(var(--spacer) * var(--multiplicator-2));
+}
+
+/* Media */
+@media (min-width: 700px) {
+  /* Flex: even-columns media-part */
+  .split {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .split > * {
+    flex-basis: 100%;
+  }
+
+  .split > * + * {
+    margin: 0 0 0 1rem;
+  }
+
+  /* even-columns: optional col-system */
+  .col-1 {
+    flex-basis: 25%;
+  }
+
+  .col-2 {
+    flex-basis: 50%;
+  }
+
+  .col-3 {
+    flex-basis: 75%;
+  }
+}
+
+.test {
+  background-color: lightpink;
+}

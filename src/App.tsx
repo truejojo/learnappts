@@ -28,7 +28,7 @@ function App() {
         <Header />
         <Container>
           <MainThemeContent />
-          <aside>
+          <aside className="test">
             <Counter />
             <Theme />
             <Like />
