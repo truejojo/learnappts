@@ -1,7 +1,7 @@
 import useCounter from "../hooks/useCounter";
 
 const Counter: React.FC = () => {
-  const { increment, decrement, getCount } = useCounter();
+  const { increment, decrement, getCount } = useCounter(10);
 
   return (
     <section className="counter">

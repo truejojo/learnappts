@@ -14,8 +14,8 @@ const counterReducer = (state: ICountState, action: ICountAction) => {
   }
 };
 
-const useCounter = () => {
-  const VALUE = 1;
+const useCounter = (valueOfCount: number) => {
+  const VALUE = valueOfCount;
   const [state, dispatch] = useReducer(counterReducer, { count: 0 });
 
   const increment = () =>
